@@ -47,12 +47,13 @@ input_row = df_penguins[:1]
 # Encode y
 target_mapper = {'Adelie':0, 
                  'Chinstrap':1,
-                 'Genteo':2}
+                 'Gentoo':2}
 def target_encode(val):
   return target_mappper[val]
 
 y = y_raw.apply(target_encode)
 y
+
 # input_df
 with st.expander('Input features'):
   st.write('***Input Penguin***')
