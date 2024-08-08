@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier  # Added import for RandomForestClassifier
 
 st.title('💀 Machine Learning App')
 
@@ -19,9 +20,8 @@ with st.expander('Data'):
     y_raw
 
 with st.expander('Data Visualization'):
-    # bill_length_mm","bill_depth_mm","flipper_length_mm","body_mass_g
     st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
-                  
+
 # Input features
 with st.sidebar:
     st.header('Input features')
@@ -65,20 +65,17 @@ def target_encode(val):
 
 y = y_raw.apply(target_encode)
 y
-y_raw
 
-# input_df
 with st.expander('Data Preparation'):
     st.write('**Encoded Input penguin (x)**')
     input_row
     st.write('**Encoded y**')
     y
 
-
 # Model training and inference
 # Train the ML model
 clf = RandomForestClassifier()
-clf.fit(x,y)
+clf.fit(x, y)
 
 # Apply the model to make predictions
 prediction = clf.predict(input_row)
