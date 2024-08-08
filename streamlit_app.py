@@ -51,7 +51,7 @@ target_mapper = {'Adelie':0,
 def target_encode(val):
   return target_mappper[val]
 
-y = y_raw(target_encode)
+y = y_raw.apply(target_encode)
 y
 # input_df
 with st.expander('Input features'):
