@@ -56,6 +56,7 @@ def target_encode(val):
 
 y = y_raw.apply(target_encode)
 y
+y_raw
 
 # input_df
 with st.expander('Input features'):
